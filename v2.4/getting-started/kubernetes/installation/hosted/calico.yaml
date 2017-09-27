@@ -143,6 +143,11 @@ spec:
               value: "1440"
             - name: FELIX_HEALTHENABLED
               value: "true"
+            # Disable conntrack INVALID rule and ignore loose RPF mode
+            - name: FELIX_DISABLECONNTRACKINVALIDCHECK
+              value: "true"
+            - name: FELIX_IGNORELOOSERPF
+              value: "true"
             # Location of the CA certificate for etcd.
             - name: ETCD_CA_CERT_FILE
               valueFrom:
