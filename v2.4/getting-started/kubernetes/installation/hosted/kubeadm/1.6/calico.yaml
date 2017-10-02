@@ -185,6 +185,8 @@ spec:
               value: "192.168.0.0/16"
             - name: CALICO_IPV4POOL_IPIP
               value: "always"
+            - name: CALICO_IPV4POOL_NAT_OUTGOING
+              value: "false"
             # Disable IPv6 on Kubernetes.
             - name: FELIX_IPV6SUPPORT
               value: "false"
@@ -195,6 +197,11 @@ spec:
             - name: FELIX_LOGSEVERITYSCREEN
               value: "info"
             - name: FELIX_HEALTHENABLED
+              value: "true"
+            # Disable conntrack INVALID rule and ignore loose RPF mode
+            - name: FELIX_DISABLECONNTRACKINVALIDCHECK
+              value: "true"
+            - name: FELIX_IGNORELOOSERPF
               value: "true"
             # Auto-detect the BGP IP address.
             - name: IP
@@ -320,6 +327,8 @@ spec:
             # kubernetes.default to the correct service clusterIP.
             - name: CONFIGURE_ETC_HOSTS
               value: "true"
+      updateStrategy:
+        type: RollingUpdate
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
