@@ -225,7 +225,7 @@ spec:
             - name: CALICO_IPV4POOL_IPIP
               value: "Always"
             - name: CALICO_IPV4POOL_NAT_OUTGOING
-              value: "false"
+              value: "true"
             # Disable IPv6 on Kubernetes.
             - name: FELIX_IPV6SUPPORT
               value: "false"
