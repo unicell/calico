@@ -1,5 +1,5 @@
 v3.0:
-- title: v3.0.3
+- title: v3.0.3-hack
   note: |
     23 February 2018
     
@@ -30,7 +30,7 @@ v3.0:
 
   components:
     felix:
-      version: 3.0.3
+      version: 3.0.3-hack
       url: https://github.com/projectcalico/felix/releases/tag/3.0.3
     typha:
       version: v0.6.2
