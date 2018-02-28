@@ -224,6 +224,8 @@ spec:
               value: "192.168.0.0/16"
             - name: CALICO_IPV4POOL_IPIP
               value: "Always"
+            - name: CALICO_IPV4POOL_NAT_OUTGOING
+              value: "false"
             # Disable IPv6 on Kubernetes.
             - name: FELIX_IPV6SUPPORT
               value: "false"
@@ -237,6 +239,11 @@ spec:
             - name: IP
               value: ""
             - name: FELIX_HEALTHENABLED
+              value: "true"
+            # Disable conntrack INVALID rule and ignore loose RPF mode
+            - name: FELIX_DISABLECONNTRACKINVALIDCHECK
+              value: "true"
+            - name: FELIX_IGNORELOOSERPF
               value: "true"
           securityContext:
             privileged: true
